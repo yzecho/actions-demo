@@ -25,6 +25,11 @@ jobs:
         # Map port 8080 on the Docker host to port 80 on the nginx container
         ports:
           - 8080:80
+      redis:
+        image: redis
+        # Map TCP port 6379 on Docker host to a random free port on the Redis container
+        ports:
+          - 6379/tcp
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -32,3 +37,4 @@ jobs:
       
       - run: |
           curl localhost:8080
+          redis-server
