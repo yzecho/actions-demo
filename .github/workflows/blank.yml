@@ -37,4 +37,4 @@ jobs:
       
       - run: |
           curl localhost:8080
-          redis-server
+          sudo cat /etc/redis/redis.conf
